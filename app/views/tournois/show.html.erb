@@ -1,0 +1,78 @@
+<h1><%= @tournoi.title %></h1>
+<br/>
+
+<p>
+<strong>Pays:</strong>
+<%= @tournoi.pays %>
+</p>
+
+<p>
+<strong>Lieu:</strong>
+<%= @tournoi.lieu %>
+</p>
+
+<p>
+<strong>Latitude:</strong>
+<%= @tournoi.latitude %> 
+</p>
+
+<p>
+<strong>Longitude:</strong>
+<%= @tournoi.longitude %>
+</p>
+
+<p>
+<strong>Google Maps:</strong>
+<div id="map-container">
+  <div id="map-canvas">
+	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@tournoi.latitude}%2C#{@tournoi.longitude}" %>
+
+</div>
+</div>
+<br/>
+</p>
+
+<p>
+<strong>Date:</strong>
+<%= @tournoi.date %>
+</p>
+
+<p>
+<strong>Heure d'inscription:</strong>
+<%= @tournoi.heure_inscription %>
+</p>
+
+<p>
+<strong>Règles:</strong>
+<%= @tournoi.regles %>
+</p>
+
+
+<p>
+<strong>Jeux proposés:</strong>
+<%= @tournoi.jeux_proposés %>
+</p>
+
+<p>
+<strong>Nombre de joueurs maximum:</strong>
+<%= @tournoi.nb_joueurs_max %>
+</p>
+
+<p>
+<strong>Récompenses:</strong>
+<%= @tournoi.recompenses %>
+</p>
+
+<p>
+<strong>Niveau de jeu:</strong>
+<%= @tournoi.niveau_de_jeu %>
+</p>
+
+<%= button_to "Some Button", :method=> "add_user" %>
+<%= button_to "S'inscrire", list_path, :method => :get %>
+<br/>
+<br/>
+
+
+<%= link_to 'Edit', edit_tournoi_path(@tournoi) %> |
+<%= link_to 'Back', tournois_path %>

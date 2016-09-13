@@ -1,0 +1,1 @@
+json.array! @tournois, partial: 'tournois/tournoi', as: :tournoi

@@ -1,0 +1,142 @@
+<div id='home page'>
+    <header>
+      <div id='en tête'>
+        <div id='logo'>
+          <img src='http://www.club-3d.com/tl_files/club3d/uploads/news/image003.png' width='100' height='100' alt='Logo gaming' />
+          <h1>Kantik Gaming</h1>
+        </div>
+        <h4>Site de tournoi en ligne</h4>
+      </div>
+      <br/>
+
+    <ul id="menu">
+        <li><%= link_to'Home',root_path %></li>
+        <li>
+                <%= link_to'Mon Profil', jeux_videos_path %>
+                <ul>
+                        <li><%= link_to'Edition', edit_user_registration_path %></li>
+                        <li><a href="#">Mes jeux</a></li>
+                        <li><a href="#">Mes tournois</a></li>
+                        <li><a href="#">Aperçu</a></li>
+                </ul>
+        </li>
+
+        <li><%= link_to'Tournois', tournois_path %></li>
+        <li><%= link_to'Jeux Disponibles', jeux_videos_path %></li>
+        <li><%= link_to'Help', jeux_videos_path %></li>
+    </ul>
+    </header>
+
+    <hr>
+
+    <section>
+      <div class='row  well text-center'>
+      <div class='col-md-12'>
+        <h4>Pays</h4>
+        <p>Veuillez sélectionner votre pays afin de trouver les tournois près de chez vous ! </p>
+      </div>
+      </div>
+    </section>
+
+    <section>
+      <div id='prochains_tournois'>
+      <div class='row well'>
+      <div class='col-md-6'>
+        <h2>Prochains Tournois</h2>
+        <div id='travaux'>
+         <img src='http://leventefajka.info/under-construction-png.png' width='200' height='200' />
+        </div>
+      </div>
+          <aside>
+            <div class='col-md-6'>
+              <%= image_tag('overwatch.png', width:'550', height:'350')%>  
+            </div>
+          </aside>
+      </div>
+      </div>
+    </section>
+
+    <section>
+      <div id='news'>
+      <div class='row well '>
+      <div class='col-md-6'>
+        <h2>News</h2>
+        <div id='travaux'>
+         <img src='http://leventefajka.info/under-construction-png.png' width='200' height='200' />
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <h2>Abonnement Premium</h2>
+        <p>Envie de nous soutenir et de bénéficier d'un max d'avantages plus stylés les uns que les autres ? Alors n'hésite pas à t'abonner ! Pour seulement 5€/mois tu bénéficieras d'une place réservée pour tous les tournois que tu désires et de plein d'autres avantages. Alors n'attends plus !!! </p>
+        <button type='button' class='btn btn-lg btn-default'>En savoir plus</button>
+        <button type='button' class='btn btn-lg btn-primary'>Abonne-toi</button>
+      </div>
+      </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class ='row  well text-left'>
+      <div class='col-md-5'>
+        <h2>Légendes</h2>
+        <p>Ce sont les meilleurs joueurs de ce mois-ci. Ils ont conquis les tournois et ont engrangés le plus de points, faisant régner la terreur sur le site. Ce sont...ce sont...les LEGENDES !!!</p>
+      </div>
+
+      <div class='col-md-5 col-md-offset-1'>
+        <h2>Partenaires</h2>
+        <p>Notre sponso à l'honneur cette semaine. Un grand merci à lui et n'hésitez pas à aller checker leur site pour voir ce qu'ils proposent. Merci encore ! </p>
+      </div>
+      </div>
+    </section>
+  
+    <hr>
+
+    <footer>
+    
+      <div class='row'>
+      <div class='col-md-2 col-md-offset-1 '>
+        <h4>A propos de nous</h4>
+          <br /><ul class='list-unstyled'>
+            <li><a href='index.html'>Resume</a></li>
+            <li><a href='tickets.html'>Terms of Use</a></li>
+            <li><a href='stations.html'>Privacy policy</a></li>
+          </ul>
+      </div>
+
+      <div class='col-md-2 col-md-offset-1'>
+        <h4>Besoin d'aide ?</h4>
+          <br /><ul class='list-unstyled'>
+            <li><a href='index.html'>Support</a></li>
+            <li><a href='tickets.html'>Tickets</a></li>
+            <li><a href='stations.html'>Forum</a></li>
+          </ul>
+      </div>
+
+      <div class='col-md-2 col-md-offset-1'>
+        <h4>Liens Utiles</h4>
+          <br /><ul class='list-unstyled'>
+            <li><a href='index.html'>Make a Profil</a></li>
+            <li><a href='tickets.html'>Register a Tournament</a></li>
+            <li><a href='stations.html'>Tell your friends</a></li>
+          </ul>
+      </div>
+
+      <div class='col-md-2 col-md-offset-1'>
+        <h4>Contacts</h4> 
+          <br /><ul class='list-unstyled'>
+            <li><a href='index.html'>Join the Staff</a></li>
+            <li><a href='tickets.html'>Social network</a></li>
+            <li><a href='stations.html'>Press</a></li>
+          </ul>
+      </div>
+      </div>
+    </footer>
+</div>
+
+
+
+
+
+
+
+

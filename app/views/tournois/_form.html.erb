@@ -1,0 +1,71 @@
+<%= form_for(@tournoi) do |f| %>
+  <% if @tournoi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tournoi.errors.count, "error") %> prohibited this tournoi from being saved:</h2>
+
+      <ul>
+      <% @tournoi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :pays %><br />
+    <%= f.text_field :pays %>
+  </p>
+  <p>
+    <%= f.label :lieu %><br />
+    <%= f.text_field :lieu %>
+  </p>
+  <p>
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </p>
+  <p>
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+    <p>
+    <%= f.label :heure_inscription %><br />
+    <%= f.time_select :heure_inscription %>
+  </p>
+  <p>
+    <%= f.label :regles %><br />
+    <%= f.text_area :regles %>
+  </p>
+  <p>
+    <%= f.label :jeux_proposés %><br />
+      <select>
+        <option value=un>Un</option>
+        <option value=deux>Deux</option>
+        <option value=trois>Trois</option>
+      </select>
+  </p>
+  <p>
+    <%= f.label :recompenses %><br />
+    <%= f.text_area :recompenses %>
+  </p>
+  <p>
+    <%= f.label :niveau_de_jeu  %><br />
+      <select>
+        <option value=facile>Amateur</option>
+        <option value=moyen>Semi-Pro</option>
+        <option value=difficile>Pro</option>
+      </select>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <%= link_to "<< Revenir à la page d'accueil", root_path %>
+<% end %>

@@ -1,0 +1,30 @@
+<h1><%= @jeux_video.title %></h1>
+<br/>
+
+<p>
+<strong>Body:</strong>
+<%= @jeux_video.body %>
+</p>
+
+<p>
+<strong>Comments:</strong>
+<%= @jeux_video.comments %>
+</p>
+
+<p>
+<strong>Nombre de joueurs:</strong>
+<%= @jeux_video.nb_joueur %>
+</p>
+
+<p>
+<strong>Server:</strong>
+<%= @jeux_video.server %>
+</p>
+
+<p>
+<strong>Champions:</strong>
+<%= @jeux_video.champion %>
+</p>
+
+<%= link_to 'Edit', edit_jeux_video_path(@jeux_video) %> |
+<%= link_to 'Back', jeux_videos_path %>

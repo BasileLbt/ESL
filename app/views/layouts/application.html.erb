@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kantik Gaming</title>
+  <meta name="google-site-verification" content="vtZ9NqponOVh1vOfCk2IGYE6G-vRP4FYRsS6aGyOJBw" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-no-turbolinks' => true %>
+  <%= javascript_include_tag 'application', 'data-no-turbolinks' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+  <div id="container">
+    <div id="content">
+      <%= yield %>
+      <hr>
+        <h6>
+        
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong> | 
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> |
+          <% end %>
+                      
+        </h6>
+    </div>
+  </div>
+
+</body>
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBZe7Xy-wkqqKx13ODl_3K4PeZ_Ep26yvk&libraries=places"></script>
+<samp></samp><script src="//code.google.com/p/google-maps-utility-library-v3/source/browse/tags/markerclustererplus/2.0.16/src/markerclusterer_packed.js?r=455" type="text/javascript"></script>
+
+</html>

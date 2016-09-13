@@ -1,0 +1,1 @@
+json.partial! "tournois/tournoi", tournoi: @tournoi

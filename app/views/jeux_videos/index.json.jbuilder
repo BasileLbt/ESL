@@ -1,0 +1,1 @@
+json.array! @jeux_videos, partial: 'jeux_videos/jeux_video', as: :jeux_video
