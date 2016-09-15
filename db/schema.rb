@@ -11,18 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912073016) do
+ActiveRecord::Schema.define(version: 20160915082403) do
 
-# Could not dump table "jeux_videos" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "jeux_videos", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.text     "comments"
+    t.integer  "nb_joueur"
+    t.string   "server"
+    t.string   "champion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "tournois" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "tournois", force: :cascade do |t|
+    t.string   "title"
+    t.string   "pays"
+    t.string   "lieu"
+    t.datetime "date"
+    t.datetime "heure_inscription"
+    t.text     "regles"
+    t.string   "jeux_proposés"
+    t.integer  "nb_joueurs_max"
+    t.text     "recompenses"
+    t.string   "niveau_de_jeu"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.integer  "tournoi_id"
