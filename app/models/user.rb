@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :confirmable, :trackable, :omniauth_providers => [:facebook]
   has_many :tournoi
-
+  validates :email, uniqueness: true
 
   def self.new_with_session(params, session)
     super.tap do |user|
