@@ -69,7 +69,7 @@
 </p>
 
 <%= button_to "Some Button", :method=> "add_user" %>
-<%= button_to "S'inscrire", list_path, :method => :get %>
+<%= button_to "S'inscrire", tournois_list_path(current_user), :method => :get %>
 <br/>
 <br/>
 

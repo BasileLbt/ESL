@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :confirmable, :trackable, :omniauth_providers => [:facebook]
-  has_many :tournoi
+  has_many :tournois
+  has_many :jeux_videos 
   validates :email, uniqueness: true
 
   def self.new_with_session(params, session)

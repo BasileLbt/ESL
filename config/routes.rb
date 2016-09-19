@@ -13,6 +13,6 @@ Blogger::Application.routes.draw do
 
 	get '/auth/facebook/callback' => 'session#authorize_callback'
  	get '/auth/facebook/setup' => 'session#setup'
- 	get 'list' => 'tournois#list'
+ 	get 'tournois/list' => 'tournois#list'
  	
 end

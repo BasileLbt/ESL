@@ -11,12 +11,12 @@
     <ul id="menu">
         <li><%= link_to'Home',root_path %></li>
         <li>
-                <%= link_to'Mon Profil', jeux_videos_path %>
+                <%= link_to'Mon Profil' %>
                 <ul>
-                        <li><%= link_to'Edition', edit_user_registration_path %></li>
+                        <li><%= link_to'Edition', edit_user_path(current_user) %></li>
                         <li><a href="#">Mes jeux</a></li>
                         <li><a href="#">Mes tournois</a></li>
-                        <li><a href="#">Aperçu</a></li>
+                        <li><%= link_to'Aperçu', user_path(current_user) %></li>
                 </ul>
         </li>
 
