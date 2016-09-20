@@ -1,5 +1,5 @@
 class TournoisController < ApplicationController
-  before_action :set_tournoi, only: [:show, :edit, :update, :destroy]
+  before_action :set_tournoi, only: [:show, :edit, :update, :destroy, :list]
 
   # GET /tournois
   # GET /tournois.json
@@ -63,7 +63,7 @@ class TournoisController < ApplicationController
   end
 
   def list
-    
+    @tournoi = Tournoi.find(params[:id])
   end
 
   def add_user

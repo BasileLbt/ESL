@@ -6,13 +6,17 @@ Blogger::Application.routes.draw do
 
   resources :jeux_videos
   resources :home
-  resources :tournois
+  resources :tournois do 
+  	collection do 
+  	get ':id/list' => 'tournois#list', as:'list'
+  end
+  end
 
-	devise_for :users, :controllers => { :omniauth_callbacks => "omniauthcallbacks" }
-	resources :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauthcallbacks" }
+  resources :users
 
 	get '/auth/facebook/callback' => 'session#authorize_callback'
  	get '/auth/facebook/setup' => 'session#setup'
- 	get 'tournois/list' => 'tournois#list'
+ 	
  	
 end
