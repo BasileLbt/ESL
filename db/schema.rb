@@ -20,9 +20,14 @@ ActiveRecord::Schema.define(version: 20160915082403) do
     t.integer  "nb_joueur"
     t.string   "server"
     t.string   "champion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "users_id"
+    t.integer  "tournois_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "jeux_videos", ["tournois_id"], name: "index_jeux_videos_on_tournois_id"
+  add_index "jeux_videos", ["users_id"], name: "index_jeux_videos_on_users_id"
 
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -55,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160915082403) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "tournoi_id"
+    t.integer  "jeux_video_id"
     t.string   "pseudo",                 default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -84,6 +90,7 @@ ActiveRecord::Schema.define(version: 20160915082403) do
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["jeux_video_id"], name: "index_users_on_jeux_video_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["tournoi_id"], name: "index_users_on_tournoi_id"
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true

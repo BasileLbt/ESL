@@ -14,10 +14,11 @@
             <li>
                   <%= link_to'Mon Profil' %>
                   <ul>
-                          <li><%= link_to'Edition', edit_user_path(current_user) %></li>
-                          <li><a href="#">Mes jeux</a></li>
-                          <li><a href="#">Mes tournois</a></li>
-                          <li><%= link_to'Aperçu', user_path(current_user) %></li>
+                        <li><%= link_to'Edition', edit_user_path(current_user) %></li>
+                        <li><%= link_to'Mes Jeux', jeux_users_path(current_user) %></li>
+                        <li><%= link_to'Mes Tournois', tournois_users_path(current_user) %></li>
+                        <li><%= link_to'Statistique', statistiques_users_path(current_user) %></li>
+                        <li><%= link_to'Aperçu', user_path(current_user) %></li>
                   </ul>
           </li>
         <% end %>

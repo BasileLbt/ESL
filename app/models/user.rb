@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :confirmable, :trackable, :omniauth_providers => [:facebook]
   has_many :tournois
   belongs_to :tournoi
-  has_many :jeux_videos 
+  has_many :jeux_videos
+  belongs_to :jeux_video 
   validates :tournoi_id, presence: true
   validates :email, uniqueness: true
 
