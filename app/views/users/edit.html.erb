@@ -28,6 +28,11 @@
     <%= f.text_area :description, autofocus: true %>
   </div>
 
+   <div class="field">
+      <%= f.check_box :admin %>
+      <%= f.label :admin %>
+    </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

@@ -1,5 +1,5 @@
 class TournoisController < ApplicationController
-  before_action :set_tournoi, only: [:show, :edit, :update, :destroy, :list]
+  before_action :set_tournoi, only: [:show, :edit, :update, :destroy]
 
   # GET /tournois
   # GET /tournois.json
@@ -64,13 +64,11 @@ class TournoisController < ApplicationController
 
   def list
     @tournoi = Tournoi.find(params[:id])
-  end
-
-  def add_user
+    @tournoi.users_id = current_user.id
+    @tournoi.save
+    @current_user.tournoi_id = @tournoi.id
     @current_user.save
-    redirect_to @list , notice: 'Vous êtes bien inscrit au tournoi'
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :confirmable, :trackable, :omniauth_providers => [:facebook]
   has_many :tournois
+  belongs_to :tournoi
   has_many :jeux_videos 
+  validates :tournoi_id, presence: true
   validates :email, uniqueness: true
 
   def self.new_with_session(params, session)

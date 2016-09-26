@@ -62,6 +62,12 @@ class JeuxVideosController < ApplicationController
     end
   end
 
+  def add_jv_to_user
+    @jeux_video = JeuxVideo.find(params[:id])
+    @user.jeux_video.save
+    redirect_to @jeux_video
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jeux_video

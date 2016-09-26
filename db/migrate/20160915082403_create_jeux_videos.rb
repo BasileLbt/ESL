@@ -8,6 +8,9 @@ class CreateJeuxVideos < ActiveRecord::Migration
   		t.string :server
   		t.string :champion
 
+  		t.references :users, index: true, foreign_key: true
+  		t.references :tournois, index: true, foreign_key: true
+
   		t.timestamps null: false
     end
   end

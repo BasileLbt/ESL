@@ -3,6 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table :users do |t|
 
       t.references :tournoi, index: true, foreign_key: true
+      t.references :jeux_video, index: true, foreign_key: true
       ## Database authenticatable
       t.string :pseudo,             null: false, default: ""
       t.string :email,              null: false, default: ""

@@ -42,9 +42,16 @@ ActiveRecord::Schema.define(version: 20160915082403) do
     t.string   "niveau_de_jeu"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "users_id"
+    t.integer  "matchs_id"
+    t.integer  "jeux_videos_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  add_index "tournois", ["jeux_videos_id"], name: "index_tournois_on_jeux_videos_id"
+  add_index "tournois", ["matchs_id"], name: "index_tournois_on_matchs_id"
+  add_index "tournois", ["users_id"], name: "index_tournois_on_users_id"
 
   create_table "users", force: :cascade do |t|
     t.integer  "tournoi_id"

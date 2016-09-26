@@ -26,5 +26,9 @@
 <%= @jeux_video.champion %>
 </p>
 
+<%= button_to "Ajouter à mes jeux", add_jv_to_users_jeux_videos_path, :method => :get %>
+
+<br/>
+
 <%= link_to 'Edit', edit_jeux_video_path(@jeux_video) %> |
 <%= link_to 'Back', jeux_videos_path %>
