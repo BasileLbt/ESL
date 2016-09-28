@@ -71,7 +71,7 @@
 <% if current_user.admin? %>
 <%= button_to "Lancer le tournoi", matches_path, :method => :get %>
 <% else %>
-<%= button_to "S'inscrire", list_tournois_path, :method => :get %>
+<%= button_to "S'inscrire", add_user_tournois_path(@tournoi), :method => :get %>
 <% end %>
 
 <br/>

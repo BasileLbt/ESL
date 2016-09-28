@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915082403) do
+ActiveRecord::Schema.define(version: 20160928102221) do
 
   create_table "jeux_videos", force: :cascade do |t|
     t.string   "title"
@@ -29,9 +29,24 @@ ActiveRecord::Schema.define(version: 20160915082403) do
   add_index "jeux_videos", ["tournois_id"], name: "index_jeux_videos_on_tournois_id"
   add_index "jeux_videos", ["users_id"], name: "index_jeux_videos_on_users_id"
 
+  create_table "jeux_videos_users", id: false, force: :cascade do |t|
+    t.integer "jeux_video_id", null: false
+    t.integer "user_id",       null: false
+  end
+
   create_table "matches", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "tournoi_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  add_index "matches", ["tournoi_id"], name: "index_matches_on_tournoi_id"
+  add_index "matches", ["users_id"], name: "index_matches_on_users_id"
+
+  create_table "matches_users", id: false, force: :cascade do |t|
+    t.integer "match_id", null: false
+    t.integer "user_id",  null: false
   end
 
   create_table "tournois", force: :cascade do |t|
@@ -58,9 +73,15 @@ ActiveRecord::Schema.define(version: 20160915082403) do
   add_index "tournois", ["matchs_id"], name: "index_tournois_on_matchs_id"
   add_index "tournois", ["users_id"], name: "index_tournois_on_users_id"
 
+  create_table "tournois_users", id: false, force: :cascade do |t|
+    t.integer "tournoi_id", null: false
+    t.integer "user_id",    null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.integer  "tournoi_id"
-    t.integer  "jeux_video_id"
+    t.integer  "tournois_id"
+    t.integer  "jeux_videos_id"
+    t.integer  "matches_id"
     t.string   "pseudo",                 default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -90,9 +111,10 @@ ActiveRecord::Schema.define(version: 20160915082403) do
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["jeux_video_id"], name: "index_users_on_jeux_video_id"
+  add_index "users", ["jeux_videos_id"], name: "index_users_on_jeux_videos_id"
+  add_index "users", ["matches_id"], name: "index_users_on_matches_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["tournoi_id"], name: "index_users_on_tournoi_id"
+  add_index "users", ["tournois_id"], name: "index_users_on_tournois_id"
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
 end

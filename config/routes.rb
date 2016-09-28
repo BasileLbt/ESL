@@ -12,20 +12,21 @@ Blogger::Application.routes.draw do
   resources :home
   resources :tournois do 
   	collection do 
-  	get ':id/list' => 'tournois#list', as:'list'
-  end
+  		get ':id/list' => 'tournois#list', as:'list'
+  		get 'add_user/:id' => 'tournois#add_user', as:'add_user'
+  	end
   end
 
+  
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauthcallbacks" }
   resources :users do
     collection do 
     	get 'jeux' => 'users#jeux', as:'jeux'
     	get 'tournois' => 'users#tournois', as:'tournois'
     	get 'statistiques' => 'users#statistiques', as:'statistiques'
     end
-  end
-
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauthcallbacks" }
-
+  end	
 	get '/auth/facebook/callback' => 'session#authorize_callback'
  	get '/auth/facebook/setup' => 'session#setup'
  	

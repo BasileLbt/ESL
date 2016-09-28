@@ -64,10 +64,13 @@ class TournoisController < ApplicationController
 
   def list
     @tournoi = Tournoi.find(params[:id])
-    @tournoi.users_id = current_user.id
+  end
+
+  def add_user
+    @tournoi = Tournoi.find(params[:id])
+    # @tournoi.users_id = current_user.id
     @tournoi.save
-    @current_user.tournoi_id = @tournoi.id
-    @current_user.save
+    redirect_to list_tournois_path
   end
 
   private

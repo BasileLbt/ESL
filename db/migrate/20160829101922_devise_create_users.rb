@@ -2,8 +2,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
 
-      t.references :tournoi, index: true, foreign_key: true
-      t.references :jeux_video, index: true, foreign_key: true
+      t.references :tournois, index: true, foreign_key: true
+      t.references :jeux_videos, index: true, foreign_key: true
+      t.references :matches, index: true, foreign_key: true
       ## Database authenticatable
       t.string :pseudo,             null: false, default: ""
       t.string :email,              null: false, default: ""

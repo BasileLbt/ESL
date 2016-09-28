@@ -1,6 +1,4 @@
 class JeuxVideo < ActiveRecord::Base
-	has_many :users
-	belongs_to :user
-	has_many :tournois
-	belongs_to :tournoi
+	has_and_belongs_to_many :users
+	has_and_belongs_to_many :tournois
 end
