@@ -73,7 +73,7 @@ class TournoisController < ApplicationController
     redirect_to list_tournois_path
   end
 
-  def play 
+  def play  
     @tournoi = Tournoi.find(params[:id])
     @tournoi.initialize_matches
     @tournoi.matches.each do |match|

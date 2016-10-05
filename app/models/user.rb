@@ -33,11 +33,11 @@ class User < ActiveRecord::Base
       if (match.score_player1 = 3 and match.score_player2 = 0 )
         player1_points += 3
         player1_win += 1
-        player2_loose +=1
+        player2_loose += 1
       elsif (match.score_player1 = 1 and match.score_player2 = 1)
         player1_points += 1
         player1_tie += 1 
-        player2_tie +=1
+        player2_tie += 1
       elsif (match.score_player1 = 0 and match.score_player2 = 3)
         player2_points += 3
         player2_win += 1

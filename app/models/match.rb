@@ -1,7 +1,7 @@
 class Match < ActiveRecord::Base
 	belongs_to :tournoi
-	belongs_to :player1, :class_name => "User"
-	belongs_to :player2, :class_name => "User"
+	belongs_to :player1, :class_name => "User", foreign_key: 'player1_id'
+	belongs_to :player2, :class_name => "User", foreign_key: 'player2_id'
 	has_and_belongs_to_many :users
 
 	def versus 
@@ -18,5 +18,5 @@ class Match < ActiveRecord::Base
       end
       self.update(score_player1, score_player2)
   end
-  
+
 end
