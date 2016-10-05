@@ -1,8 +1,9 @@
 Blogger::Application.routes.draw do
 
   
+  root to: 'home#index'
+
   resources :matches
-	root to: 'home#index'
 
   resources :jeux_videos do
   	collection do
@@ -14,6 +15,7 @@ Blogger::Application.routes.draw do
   	collection do 
   		get ':id/list' => 'tournois#list', as:'list'
   		get 'add_user/:id' => 'tournois#add_user', as:'add_user'
+      get 'play/:id' => 'tournois#play', as:'play'
   	end
   end
 

@@ -3,22 +3,22 @@
 
 <p>
 <strong>Nombre de Victoires:</strong>
-
+	<%= current_user.win.count %>
 </p>
 
 <p>
 <strong>Nombre de Défaites:</strong>
-
+	<%= current_user.loose.count %>
 </p>
 
 <p>
 <strong>Nombre de Participation:</strong>
-	<%= User.tournois.count %>
+	<%= current_user.tournois.count %>
 </p>
 
 <p>
 <strong>Points Totaux:</strong>
-
+	<%= current_user.points %>
 </p>
 
 	

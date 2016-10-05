@@ -14,6 +14,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :sexe
       t.string :pays
       t.string :description
+      t.integer :points
+      t.integer :win
+      t.integer :tie
+      t.integer :loose
 
       ## Recoverable
       t.string   :reset_password_token

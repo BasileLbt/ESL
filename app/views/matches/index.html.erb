@@ -1,26 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Matches</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @matches.each do |match| %>
-      <tr>
-        <td><%= link_to 'Show', match %></td>
-        <td><%= link_to 'Edit', edit_match_path(match) %></td>
-        <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<h1>Resultats Matchs</h1>
 
 
-<%= link_to 'New Match', new_match_path %>
+<p>
+<strong>Player 1:</strong>
+  <% @score_player2 %>
+</p>
+
+
+<p>
+<strong>Player 2:</strong>
+  <% @score_player2 %>
+</p>
+
+
+<p>
+<strong>Score player1:</strong>
+  <% @score_player1 %>
+</p>
+
+<p>
+<strong>Score player2:</strong>
+  <% @score_player2 %>
+</p>
+
+
+

@@ -68,9 +68,18 @@ class TournoisController < ApplicationController
 
   def add_user
     @tournoi = Tournoi.find(params[:id])
-    # @tournoi.users_id = current_user.id
+    @tournoi.users << current_user
     @tournoi.save
     redirect_to list_tournois_path
+  end
+
+  def play 
+    @tournoi = Tournoi.find(params[:id])
+    @tournoi.initialize_matches
+    @tournoi.matches.each do |match|
+      match.versus
+    end
+    redirect_to matches_path
   end
 
   private

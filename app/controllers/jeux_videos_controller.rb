@@ -64,7 +64,7 @@ class JeuxVideosController < ApplicationController
 
   def add_jv_to_user
     @jeux_video = JeuxVideo.find(params[:id])
-    #@jeux_video.users_id = current_user.id 
+    @jeux_video.users << current_user 
     @jeux_video.save
     redirect_to @jeux_video, notice: 'Jeux video was successfully added.' 
   end

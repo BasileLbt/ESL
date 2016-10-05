@@ -34,20 +34,28 @@ ActiveRecord::Schema.define(version: 20160928102221) do
     t.integer "user_id",       null: false
   end
 
+  add_index "jeux_videos_users", ["jeux_video_id", "user_id"], name: "index_jeux_videos_users_on_jeux_video_id_and_user_id"
+  add_index "jeux_videos_users", ["user_id", "jeux_video_id"], name: "index_jeux_videos_users_on_user_id_and_jeux_video_id"
+
   create_table "matches", force: :cascade do |t|
-    t.integer  "users_id"
+    t.integer  "player1"
+    t.integer  "player2"
+    t.integer  "score_player1"
+    t.integer  "score_player2"
     t.integer  "tournoi_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "matches", ["tournoi_id"], name: "index_matches_on_tournoi_id"
-  add_index "matches", ["users_id"], name: "index_matches_on_users_id"
 
   create_table "matches_users", id: false, force: :cascade do |t|
     t.integer "match_id", null: false
     t.integer "user_id",  null: false
   end
+
+  add_index "matches_users", ["match_id", "user_id"], name: "index_matches_users_on_match_id_and_user_id"
+  add_index "matches_users", ["user_id", "match_id"], name: "index_matches_users_on_user_id_and_match_id"
 
   create_table "tournois", force: :cascade do |t|
     t.string   "title"
@@ -78,6 +86,9 @@ ActiveRecord::Schema.define(version: 20160928102221) do
     t.integer "user_id",    null: false
   end
 
+  add_index "tournois_users", ["tournoi_id", "user_id"], name: "index_tournois_users_on_tournoi_id_and_user_id"
+  add_index "tournois_users", ["user_id", "tournoi_id"], name: "index_tournois_users_on_user_id_and_tournoi_id"
+
   create_table "users", force: :cascade do |t|
     t.integer  "tournois_id"
     t.integer  "jeux_videos_id"
@@ -90,6 +101,10 @@ ActiveRecord::Schema.define(version: 20160928102221) do
     t.string   "sexe"
     t.string   "pays"
     t.string   "description"
+    t.integer  "points"
+    t.integer  "win"
+    t.integer  "tie"
+    t.integer  "loose"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

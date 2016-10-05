@@ -1,5 +1,8 @@
 <h1>Mes Tournois</h1>
 <br/>
 
-<li><%= current_user.tournoi.title %></li>
+
+<% current_user.tournois.each do |tournoi| %>
+	<li> <%= tournoi.title %> </li>
+<% end %>
 
