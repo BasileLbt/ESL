@@ -42,12 +42,14 @@ ActiveRecord::Schema.define(version: 20160928102221) do
     t.integer  "player2"
     t.integer  "score_player1"
     t.integer  "score_player2"
+    t.integer  "user_id"
     t.integer  "tournoi_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   add_index "matches", ["tournoi_id"], name: "index_matches_on_tournoi_id"
+  add_index "matches", ["user_id"], name: "index_matches_on_user_id"
 
   create_table "matches_users", id: false, force: :cascade do |t|
     t.integer "match_id", null: false
