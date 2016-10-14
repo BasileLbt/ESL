@@ -2,14 +2,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
 
-      t.references :tournois, index: true, foreign_key: true
-      t.references :jeux_videos, index: true, foreign_key: true
-      t.references :matches, index: true, foreign_key: true
+    
       ## Database authenticatable
       t.string :pseudo,             null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.boolean :admin,             null: false, default: ""
+      t.boolean :admin            
       t.integer :age          
       t.string :sexe
       t.string :pays
@@ -44,6 +42,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :unlock_token # Only if unlock strategy is :email or :both
       t.datetime :locked_at
 
+      t.references :tournois, index: true
+      t.references :jeux_videos, index: true
+      t.references :matches, index: true
 
       t.timestamps null: false
     end

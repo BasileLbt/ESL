@@ -39,6 +39,7 @@ gem 'omniauth-oauth2'
 gem 'geocoder'
 gem 'cancancan', '~> 1.10'
 gem 'gmaps4rails'
+gem 'pg'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

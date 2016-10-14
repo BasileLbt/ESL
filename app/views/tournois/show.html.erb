@@ -70,8 +70,12 @@
 
 <% if current_user.admin? %>
 <%= button_to "Lancer le tournoi", play_tournois_path(@tournoi), :method => :get %>
+<br/>
+<%= button_to "Resultat du match", matches_path, :method => :get %>
 <% else %>
 <%= button_to "S'inscrire", add_user_tournois_path(@tournoi), :method => :get %>
+<br/>
+<%= button_to "Resultat du match", matches_path, :method => :get %>
 <% end %>
 
 <br/>

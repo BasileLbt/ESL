@@ -78,6 +78,7 @@ class TournoisController < ApplicationController
     @tournoi.initialize_matches
     @tournoi.matches.each do |match|
       match.versus
+      match.points
     end
     redirect_to matches_path
   end

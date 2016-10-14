@@ -1,27 +1,45 @@
 <h1>Resultats Matchs</h1>
 
-
-<p>
-<strong>Player 1:</strong>
- 
-</p>
+<br/>
 
 
-<p>
-<strong>Player 2:</strong>
-  
-</p>
+<% @matches.each do |match| %>
 
+  <p>
+  <strong>Id Match n° <%= match.id %></strong>
+  </p>
+  <br/>
 
-<p>
-<strong>Score player1:</strong>
-  <% @score_player1 %>
-</p>
+  <p>
+  <strong>Player 1:</strong>
+    <%= User.find(match.player1_id).pseudo %>
+  </p>
 
-<p>
-<strong>Score player2:</strong>
-  <% @score_player2 %>
-</p>
+  <p>
+  <strong>Player 2:</strong>
+   <%= User.find(match.player2_id).pseudo %>
+  </p>
 
+  <p>
+  <strong>Score player 1:</strong>
+    <%= match.score_player1 %> pts
+  </p>
 
+  <p>
+  <strong>Score player 2:</strong>
+    <%= match.score_player2 %> pts
+  </p>
 
+  <p>
+  <strong>Vainqueur du match:</strong>
+    <%= User.find(match.winner_id).pseudo %>
+  </p>
+
+  <br/>
+
+  <% end %>
+
+  <p>
+  <strong>Vainqueur du tournoi:</strong>
+    
+  </p>

@@ -10,8 +10,10 @@ class Tournoi < ActiveRecord::Base
 		b = a.combination(2).to_a.count - 1 
 		for i in 0..b
 			match = Match.new
-			match.player1 << a.combination(2).to_a[i].first
-			match.player2 << a.combination(2).to_a[i].second
+			match.tournoi_id = self.id
+			match.player1 = a.combination(2).to_a[i].first
+			match.player2 = a.combination(2).to_a[i].second 
+			match.save
 		end	
 	end
 end	

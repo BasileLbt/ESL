@@ -13,10 +13,11 @@ class CreateTournois < ActiveRecord::Migration
   	t.string :niveau_de_jeu
     t.float :latitude
     t.float :longitude
+    t.string :winner
 
-    t.references :users, index: true, foreign_key: true
-    t.references :matchs, index: true, foreign_key: true
-    t.references :jeux_videos, index: true, foreign_key: true
+    t.references :users, index: true
+    t.references :matchs, index: true
+    t.references :jeux_videos, index: true
 
     t.timestamps null: false
 
