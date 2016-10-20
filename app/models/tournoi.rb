@@ -16,4 +16,5 @@ class Tournoi < ActiveRecord::Base
 			match.save
 		end	
 	end
+
 end	

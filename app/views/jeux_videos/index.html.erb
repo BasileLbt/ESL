@@ -1,7 +1,7 @@
 <h1>Listing Jeux Videos</h1>
 <br/>
 
-<table>
+<table id = 'test'>
   <thead>
     <tr>
       <th>Titre</th>
@@ -9,20 +9,17 @@
   </thead>
 
   <tbody>
+    
     <% @jeux_videos.each do |jeux_video| %>
-      <tr>
-       <td><%= jeux_video.title %></td>
-       <td><%= link_to 'Show', jeux_video_path(jeux_video) %>
-       <%= link_to 'Edit', edit_jeux_video_path(jeux_video) %>
-       <%= link_to 'Destroy', jeux_video_path(jeux_video), :method => :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render partial: jeux_video %>
     <% end %>
+
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Jeux video', new_jeux_video_path %>
+<%= link_to 'New Jeux video', new_jeux_video_path, id: "new_link", :remote => true %>
 <br/>
 <%= link_to 'Back', root_path %>
 

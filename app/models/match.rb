@@ -40,12 +40,5 @@ class Match < ActiveRecord::Base
       player2.save
       player1.save
   end
-
-  def winner_match
-    a = tournoi.users.count
-    for i in 0..a
-      self.winner_id(i).count
-    end
-  end
         
 end

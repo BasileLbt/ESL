@@ -32,14 +32,13 @@
 
   <p>
   <strong>Vainqueur du match:</strong>
-    <%= User.find(match.winner_id).pseudo %>
+    <% if match.winner_id == 0 %>
+        Egalité
+      <% else %>
+      <%= User.find(match.winner_id).pseudo %>
+    <% end %>
   </p>
 
   <br/>
 
-  <% end %>
-
-  <p>
-  <strong>Vainqueur du tournoi:</strong>
-    
-  </p>
+<% end %>

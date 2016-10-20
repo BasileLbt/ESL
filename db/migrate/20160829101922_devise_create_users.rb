@@ -16,6 +16,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer :win
       t.integer :tie
       t.integer :loose
+      t.float :latitude 
+      t.float :longitude
+
 
       ## Recoverable
       t.string   :reset_password_token

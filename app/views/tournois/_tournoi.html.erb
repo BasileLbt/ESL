@@ -1,0 +1,6 @@
+<tr>
+    <td><%= tournoi.title %></td>
+    <td><%= link_to 'Show', tournoi %>
+    <%= link_to 'Edit', edit_tournoi_path(tournoi) %>
+    <%= link_to 'Destroy', tournoi, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_tournoi' %></td>
+</tr>

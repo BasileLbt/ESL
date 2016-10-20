@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  geocoded_by :current_sign_in_ip
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :confirmable, :trackable, :omniauth_providers => [:facebook]
   has_and_belongs_to_many :tournois

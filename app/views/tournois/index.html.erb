@@ -1,6 +1,6 @@
 <h1>Listing Tournois</h1>
 
-<table>
+<table id = "test">
   <thead>
     <tr>
        <th>Titre</th>
@@ -9,18 +9,13 @@
 
   <tbody>
     <% @tournois.each do |tournoi| %>
-      <tr>
-        <td><%= tournoi.title %></td>
-        <td><%= link_to 'Show', tournoi %>
-        <%= link_to 'Edit', edit_tournoi_path(tournoi) %>
-        <%= link_to 'Destroy', tournoi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render partial: tournoi %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Tournoi', new_tournoi_path %>
+<%= link_to 'New Tournoi', new_tournoi_path, id: "new_link", :remote => true %>
 <br/>
 <%= link_to 'Back', root_path %>

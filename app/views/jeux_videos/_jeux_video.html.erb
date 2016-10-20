@@ -1,0 +1,6 @@
+<tr>
+    <td><%= jeux_video.title %></td>
+    <td><%= link_to 'Show', jeux_video_path(jeux_video) %>
+    <%= link_to 'Edit', edit_jeux_video_path(jeux_video) %>
+    <%= link_to 'Destroy', jeux_video_path(jeux_video), :method => :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_jeu ' %></td>
+</tr>

@@ -31,9 +31,11 @@ class JeuxVideosController < ApplicationController
       if @jeux_video.save
         format.html { redirect_to @jeux_video, notice: 'Jeux video was successfully created.' }
         format.json { render :show, status: :created, location: @jeux_video }
+        format.js   { flash[:notice] = "Jeux video was successfully created." }
       else
         format.html { render :new }
         format.json { render json: @jeux_video.errors, status: :unprocessable_entity }
+        format.js   
       end
     end
   end
@@ -59,6 +61,7 @@ class JeuxVideosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to jeux_videos_url, notice: 'Jeux video was successfully destroyed.' }
       format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 

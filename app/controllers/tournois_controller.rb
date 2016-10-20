@@ -31,9 +31,11 @@ class TournoisController < ApplicationController
       if @tournoi.save
         format.html { redirect_to @tournoi, notice: 'Tournoi was successfully created.' }
         format.json { render :show, status: :created, location: @tournoi }
+        format.js   { flash[:notice] = "Tournoi was successfully created." }
       else
         format.html { render :new }
         format.json { render json: @tournoi.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -59,6 +61,7 @@ class TournoisController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tournois_url, notice: 'Tournoi was successfully destroyed.' }
       format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 

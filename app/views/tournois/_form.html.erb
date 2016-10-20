@@ -1,4 +1,4 @@
-<%= form_for(@tournoi) do |f| %>
+<%= form_for @tournoi, :remote => true  do |f| %>
   <% if @tournoi.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tournoi.errors.count, "error") %> prohibited this tournoi from being saved:</h2>

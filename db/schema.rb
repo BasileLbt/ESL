@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(version: 20160928102221) do
     t.integer  "win"
     t.integer  "tie"
     t.integer  "loose"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
