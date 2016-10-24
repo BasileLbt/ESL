@@ -11,6 +11,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer :age          
       t.string :sexe
       t.string :pays
+      t.string :ville
+      t.string :adresse
       t.string :description
       t.integer :points
       t.integer :win

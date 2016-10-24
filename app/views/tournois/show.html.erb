@@ -23,7 +23,7 @@
 
 <p>
 <strong>Distance par rapport à ma localisation:</strong>
-<%= current_user.latitude %> km
+<%= @tournoi.distance_to(current_user) %> miles
 <p>
 
 <strong>Google Maps:</strong>

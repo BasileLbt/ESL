@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  geocoded_by :current_sign_in_ip
+  geocoded_by :full_street_adresse
+  after_validation :geocode
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :confirmable, :trackable, :omniauth_providers => [:facebook]
   has_and_belongs_to_many :tournois
@@ -9,6 +10,11 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :matches, :through => :tournois
   validates :email, uniqueness: true
   
+
+  def full_street_adresse
+    [adresse, ville, pays].compact.join(', ')
+  end
+
 
   def self.new_with_session(params, session)
     super.tap do |user|

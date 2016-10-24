@@ -31,7 +31,7 @@ class JeuxVideosController < ApplicationController
       if @jeux_video.save
         format.html { redirect_to @jeux_video, notice: 'Jeux video was successfully created.' }
         format.json { render :show, status: :created, location: @jeux_video }
-        format.js   { flash[:notice] = "Jeux video was successfully created." }
+        format.js   
       else
         format.html { render :new }
         format.json { render json: @jeux_video.errors, status: :unprocessable_entity }
@@ -80,6 +80,6 @@ class JeuxVideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jeux_video_params
-      params.require(:jeux_video).permit(:title, :body, :comments, :nb_joueurs, :server, :champion)
+      params.require(:jeux_video).permit(:title, :body, :comments, :nb_joueur, :server, :champion)
        end
 end

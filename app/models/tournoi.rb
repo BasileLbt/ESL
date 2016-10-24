@@ -4,6 +4,11 @@ class Tournoi < ActiveRecord::Base
 	has_and_belongs_to_many :users
 	has_many :matches
 	belongs_to :jeux_videos
+	validates :title, :presence => true, :length => { :minimum => 5 }
+	validates :pays, :presence => true, :length => { :maximum => 10 }
+	validates :lieu, :presence => true, :length => { :minimum => 15 }
+	validates :regles, :presence => true, :length => { :minimum => 10, :maximum => 100 }
+	validates :recompenses, :presence => true, :length => { :minimum => 10, :maximum => 50 }
 	
 	def initialize_matches
 		a = self.users

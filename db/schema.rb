@@ -103,6 +103,8 @@ ActiveRecord::Schema.define(version: 20160928102221) do
     t.integer  "age"
     t.string   "sexe"
     t.string   "pays"
+    t.string   "ville"
+    t.string   "adresse"
     t.string   "description"
     t.integer  "points"
     t.integer  "win"

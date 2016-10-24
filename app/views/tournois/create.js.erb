@@ -1,4 +1,8 @@
-$('#new_tournoi').remove();
-$('#new_link').show();
-$('table#test tbody').append("<%= j render(@tournoi) %>");
-$('#notice').show();
+<% if @tournoi.errors.any? %>
+	$('#new_tournoi').remove()
+	$('#new_link').hide().after('<%= j render("form") %>')
+<% else %>
+	$('#new_tournoi').remove();
+	$('#new_link').show();
+	$('table#test tbody').append("<%= j render(@tournoi) %>");
+<% end %>
