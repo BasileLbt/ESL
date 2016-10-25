@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
     [adresse, ville, pays].compact.join(', ')
   end
 
+  def initialize_users(user)
+    user.points = 0
+    user.win = 0
+    user.tie = 0 
+    user.loose = 0
+  end
 
   def self.new_with_session(params, session)
     super.tap do |user|

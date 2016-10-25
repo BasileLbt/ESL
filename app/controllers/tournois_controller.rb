@@ -73,6 +73,8 @@ class TournoisController < ApplicationController
     @tournoi = Tournoi.find(params[:id])
     @tournoi.users << current_user
     @tournoi.save
+    @user = current_user
+    UserMailer.inscription(@user, @tournoi).deliver_later
     redirect_to list_tournois_path
   end
 
@@ -83,6 +85,8 @@ class TournoisController < ApplicationController
       match.versus
       match.points
     end
+    @user = current_user
+    UserMailer.points(@user, @tournoi).deliver_later
     redirect_to matches_path
   end
 
