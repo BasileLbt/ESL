@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :confirmable, :trackable, :omniauth_providers => [:facebook]
   has_and_belongs_to_many :tournois
   has_and_belongs_to_many :jeux_videos
-  has_and_belongs_to_many :matches, :through => :tournois
+  has_and_belongs_to_many :favorites
+  has_and_belongs_to_many :matches
   validates :email, uniqueness: true
   
 

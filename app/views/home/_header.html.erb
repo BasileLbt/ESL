@@ -17,14 +17,14 @@
                         <li><%= link_to'Edition', edit_user_path(current_user) %></li>
                         <li><%= link_to'Mes Jeux', jeux_users_path(current_user) %></li>
                         <li><%= link_to'Mes Tournois', tournois_users_path(current_user) %></li>
-                        <li><%= link_to'Statistique', statistiques_users_path(current_user) %></li>
+                        <li><%= link_to'Statistiques', statistiques_users_path(current_user) %></li>
                         <li><%= link_to'Aperçu', user_path(current_user) %></li>
                   </ul>
           </li>
         <% end %>
         <li><%= link_to'Tournois', tournois_path %></li>
         <li><%= link_to'Jeux Disponibles', jeux_videos_path %></li>
-        <li><%= link_to'Help', jeux_videos_path %></li>
+        <li><%= link_to'Admin', new_admin_user_session_path %></li>          
     </ul>
 </header>
   

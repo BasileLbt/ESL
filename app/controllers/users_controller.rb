@@ -33,6 +33,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def player 
+    @users = User.order("points DESC")
+  end
+
+  def tournament
+    @jeux_videos = JeuxVideo.order("users_count DESC")
+    @tournois = Tournoi.order("users_count DESC")
+  end
+
+  def statistiques
+    @users = User.order("points DESC")
+    @jeux_videos = JeuxVideo.order("users_count DESC")
+    @tournois = Tournoi.order("users_count DESC")
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

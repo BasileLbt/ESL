@@ -7,8 +7,8 @@
 </p>
 
 <p>
-<strong>Comments:</strong>
-<%= @jeux_video.comments %>
+<strong>Commentaires:</strong>
+<%= @jeux_video.commentaire %>
 </p>
 
 <p>
@@ -27,7 +27,22 @@
 </p>
 
 <%= button_to "Ajouter à mes jeux", add_jv_to_user_jeux_videos_path, :method => :get %>
+<%= button_to "Ajouter à mes jeux favoris", add_jv_fav_to_user_favorites_path, :method => :get %>
 
+
+
+
+<br/>
+<div id = "com_test">
+<h2>Comments</h2>
+</div>
+<br/>
+<div id = "comments_all">
+<%= render partial: 'jeux_videos/comment', collection: @jeux_video.comments %>
+</div>
+<br/>
+<%= link_to 'post a comment', new_comment_path(@comment), id: "post_link", :remote => true %>
+<br/>
 <br/>
 
 <%= link_to 'Edit', edit_jeux_video_path(@jeux_video) %> |

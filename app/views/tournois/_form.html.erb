@@ -14,39 +14,39 @@
 
   <p>
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class:"form-control" %>
   </p>
   <p>
     <%= f.label :pays %><br />
-    <%= f.text_field :pays %>
+    <%= f.text_field :pays, class:"form-control" %>
   </p>
   <p>
     <%= f.label :lieu %><br />
-    <%= f.text_field :lieu %>
+    <%= f.text_field :lieu, class:"form-control" %>
   </p>
   <p>
     <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.date_select :date, { ampm: true, order: [:day, :month, :year] }, { class: "form-control" } %>
   </p>
     <p>
     <%= f.label :heure_inscription %><br />
-    <%= f.time_select :heure_inscription %>
+    <%= f.time_select :heure_inscription, { prompt: {hour: 'Choose hour', minute: 'Choose minute'}, minute_step: 15 }, { class: 'form-control' } %>
   </p>
   <p>
     <%= f.label :regles %><br />
-    <%= f.text_area :regles %>
+    <%= f.text_area :regles, class:"form-control", rows:"3" %>
   </p>
   <p>
     <%= f.label :recompenses %><br />
-    <%= f.text_area :recompenses %>
+    <%= f.text_area :recompenses, class:"form-control", rows:"3" %>
   </p>
   <p>
     <%= f.label :niveau_de_jeu  %><br />
-      <select>
-        <option value=facile>Amateur</option>
-        <option value=moyen>Semi-Pro</option>
-        <option value=difficile>Pro</option>
-      </select>
+    <%= f.select :niveau_de_jeu, [['amateur', 'amateur'], ['semi-pro', 'semi-pro'], ['pro', 'pro']], {}, class: "form-control" %>  
+  </p>
+  <p>
+    <%= f.label :jeux_proposés  %><br />
+    <%= f.collection_select :jeux_proposés, JeuxVideo.all, :title, :title, {}, class: "form-control"   %>  
   </p>
   <p>
     <button type="submit" class="btn btn-primary">Submit</button>

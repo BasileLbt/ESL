@@ -1,0 +1,23 @@
+<h1>Tournaments/Games Stats</h1>
+
+<br/>
+
+Jeux les plus joués :
+
+<br/> 
+<br/> 
+
+<% @jeux_videos.each do |jeux_video| %>
+   <li> <%= jeux_video.title %> avec <%= jeux_video.users.count %> players</li> 
+<% end %>
+
+<br/>
+
+Tournois les plus joués : 
+
+<br/>
+<br/>
+
+<% @tournois.each do |tournoi| %>
+   <li> <%= tournoi.title %> avec <%= tournoi.users.count %> players</li> 
+<% end %>

@@ -5,5 +5,8 @@
 	<li> <%= jeux_video.title %> </li>
 <% end %>
 
+<h1>Favoris</h1>
 
-
+<% current_user.favorites.each do |favorite| %>
+	<li> <%= favorite.title %> </li>
+<% end %>

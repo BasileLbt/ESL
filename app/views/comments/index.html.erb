@@ -1,0 +1,10 @@
+<div id = "content">
+<h1>Listing Comments</h1>
+<br>
+
+<% @comments.each do |comment| %>
+  <%= render partial: comment %>
+<% end %>  
+
+<br>
+</div>

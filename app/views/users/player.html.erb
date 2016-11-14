@@ -1,0 +1,12 @@
+<h1>Players Stats</h1>
+
+<br/>
+
+Meilleurs joueurs :
+
+<br/>
+<br/>
+
+<% @users.each do |user| %>
+   <li><%= user.pseudo %> avec <%= user.points %> pts</li> 
+<% end %>

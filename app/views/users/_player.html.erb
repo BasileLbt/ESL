@@ -1,0 +1,12 @@
+<div id="me">
+<br/>
+
+<strong>Meilleurs joueurs :</strong>
+
+<br/>
+<br/>
+
+<% @users.each do |user| %>
+   <li><%= user.pseudo %> avec <strong><%= user.points %> pts</strong></li> 
+<% end %>
+</div>

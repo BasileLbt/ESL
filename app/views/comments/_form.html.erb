@@ -1,0 +1,31 @@
+<%= form_for [ @jeux_video, @comment ], :remote => true do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :author_name %><br/>
+    <%= f.text_field :author_name %>
+  </p>
+  <p>
+    <%= f.label :body %><br/>
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.label :rating %><br/> 
+    <%= f.select :rating, [['horrible', 1], ['poor', 2], ['mediocre', 3], ['good', 4], ['great', 5]] %>
+  </p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

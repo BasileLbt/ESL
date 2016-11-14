@@ -1,29 +1,52 @@
-<h1>Mes Statistiques</h1>
+<h1>Statistiques</h1>
 <br/>
-
-<p>
-<strong>Nombre de Victoires:</strong>
-	<%= current_user.win %>
-</p>
-
-<p>
-<strong>Nombre de Défaites:</strong>
-	<%= current_user.loose %>
-</p>
-
-<p>
-<strong>Nombre d'égalités:</strong>
-	<%= current_user.tie %>
-</p>
-
-<p>
-<strong>Nombre de Participation:</strong>
-	<%= current_user.tournois.count %>
-</p>
-
-<p>
-<strong>Points Totaux:</strong>
-	<%= current_user.points %>
-</p>
-
 	
+<ul id="myTab" class="nav nav-tabs">
+	<li id="me_link"><%= link_to'Me', statistiques_users_path(current_user), class: 'me', :remote => true %></li>
+	<li id="player_link"><%= link_to'Players', player_users_path(current_user), class: 'player', :remote => true %></li>
+	<li id="tournament_link"><%= link_to'Tournaments/Games', tournament_users_path(current_user), class: 'tournament', :remote => true %></li>
+</ul>
+ 
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="me">
+	<br/>
+	<p>
+	<strong>Nombre de Victoires:</strong>
+	<%= current_user.win %>
+	</p>
+
+	<p>
+	<strong>Nombre de Défaites:</strong>
+	<%= current_user.loose %>
+	</p>
+
+	<p>
+	<strong>Nombre d'égalités:</strong>
+	<%= current_user.tie %>
+	</p>
+
+	<p>
+	<strong>Nombre de Participation:</strong>
+	<%= current_user.tournois.count %>
+	</p>
+
+	<p>
+	<strong>Points Totaux:</strong>
+	<%= current_user.points %>
+	</p>
+  </div>
+</div>
+
+<script> 
+  $("#player_link").click(function(){
+     $("#me").html("<%= j render('player') %>");
+  });
+
+  $("#tournament_link").click(function(){
+     $("#me").html("<%= j render('tournament') %>");
+  });
+
+  $("#me_link").click(function(){
+     $("#me").html("<%= j render('statistiques') %>");
+  });
+</script>

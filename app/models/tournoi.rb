@@ -22,4 +22,12 @@ class Tournoi < ActiveRecord::Base
 		end	
 	end
 
+	def initialize_tournois(tournoi)
+    	tournoi.users_count = 0
+  	end
+
+  	def add_user_count(tournoi)
+  		tournoi.users_count += 1
+  	end
+
 end	

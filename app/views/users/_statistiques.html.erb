@@ -1,0 +1,27 @@
+<div id="me">
+<br/>
+	<p>
+	<strong>Nombre de Victoires:</strong>
+	<%= current_user.win %>
+	</p>
+
+	<p>
+	<strong>Nombre de Défaites:</strong>
+	<%= current_user.loose %>
+	</p>
+
+	<p>
+	<strong>Nombre d'égalités:</strong>
+	<%= current_user.tie %>
+	</p>
+
+	<p>
+	<strong>Nombre de Participation:</strong>
+	<%= current_user.tournois.count %>
+	</p>
+
+	<p>
+	<strong>Points Totaux:</strong>
+	<%= current_user.points %>
+	</p>
+</div>

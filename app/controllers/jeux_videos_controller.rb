@@ -11,6 +11,7 @@ class JeuxVideosController < ApplicationController
   # GET /jeux_videos/1.json
   def show
     @jeux_videos = JeuxVideo.find(params[:id])
+    
   end
 
   # GET /jeux_videos/new
@@ -26,6 +27,11 @@ class JeuxVideosController < ApplicationController
   # POST /jeux_videos.json
   def create
     @jeux_video = JeuxVideo.new(jeux_video_params)
+    @jeux_video.initialize_jeuxvideo(@jeux_video)
+    @jeux_video.save
+    @favorite = Favorite.new
+    @favorite.id = @jeux_video.id
+    @favorite.save
 
     respond_to do |format|
       if @jeux_video.save
@@ -72,6 +78,8 @@ class JeuxVideosController < ApplicationController
     redirect_to @jeux_video, notice: 'Jeux video was successfully added.' 
   end
 
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jeux_video
@@ -80,6 +88,6 @@ class JeuxVideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jeux_video_params
-      params.require(:jeux_video).permit(:title, :body, :comments, :nb_joueur, :server, :champion)
+      params.require(:jeux_video).permit(:title, :body, :commentaire, :nb_joueur, :server, :champion)
        end
 end

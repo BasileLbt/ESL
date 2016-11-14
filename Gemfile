@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -40,6 +40,7 @@ gem 'geocoder'
 gem 'cancancan', '~> 1.10'
 gem 'gmaps4rails'
 gem 'pg'
+gem 'activeadmin', '~> 1.0.0.pre4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

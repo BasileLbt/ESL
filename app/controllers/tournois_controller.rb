@@ -26,6 +26,7 @@ class TournoisController < ApplicationController
   # POST /tournois.json
   def create
     @tournoi = Tournoi.new(tournoi_params)
+    @tournoi.initialize_tournois(@tournoi)
 
     respond_to do |format|
       if @tournoi.save

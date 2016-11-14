@@ -14,6 +14,7 @@ class CreateTournois < ActiveRecord::Migration
     t.float :latitude
     t.float :longitude
     t.string :winner
+    t.integer :users_count
 
     t.references :users, index: true
     t.references :matchs, index: true
