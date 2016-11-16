@@ -1,0 +1,17 @@
+launch tournament
+
+<% if activity.trackable %>
+  <%= link_to activity.trackable.title, activity.trackable %>
+<% else %>
+  which has since been removed
+<% end %>
+
+<br>
+
+<%= link_to activity.owner.pseudo, activity.owner if activity.owner %> ended tournament 
+
+<% if activity.trackable %>
+  <%= link_to activity.trackable.title, activity.trackable %>
+<% else %>
+  which has since been removed
+<% end %>

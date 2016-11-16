@@ -30,6 +30,7 @@ class TournoisController < ApplicationController
 
     respond_to do |format|
       if @tournoi.save
+        @tournoi.create_activity :create, owner: current_user
         format.html { redirect_to @tournoi, notice: 'Tournoi was successfully created.' }
         format.json { render :show, status: :created, location: @tournoi }
         format.js   { flash[:notice] = "Tournoi was successfully created." }
@@ -88,6 +89,7 @@ class TournoisController < ApplicationController
     end
     @user = current_user
     UserMailer.points(@user, @tournoi).deliver_later
+    @tournoi.create_activity :play, owner: current_user
     redirect_to matches_path
   end
 

@@ -1,9 +1,11 @@
 class Tournoi < ActiveRecord::Base
+	include PublicActivity::Common
+	# tracked owner: ->(controller, model) { controller && controller.current_user }
 	geocoded_by :lieu
 	after_validation :geocode
 	has_and_belongs_to_many :users
 	has_many :matches
-	belongs_to :jeux_videos
+	belongs_to :jeux_video
 	validates :title, :presence => true, :length => { :minimum => 5 }
 	validates :pays, :presence => true, :length => { :maximum => 10 }
 	validates :lieu, :presence => true, :length => { :minimum => 15 }

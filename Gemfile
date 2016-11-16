@@ -41,6 +41,7 @@ gem 'cancancan', '~> 1.10'
 gem 'gmaps4rails'
 gem 'pg'
 gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'public_activity'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

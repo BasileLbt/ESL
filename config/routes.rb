@@ -2,6 +2,8 @@ Blogger::Application.routes.draw do
 
 
   
+  resources :activities
+
   resources :favorites do 
     collection do
       get ':id/add_jv_fav_to_user'=> 'favorites#add_jv_fav_to_user', as: 'add_jv_fav_to_user'

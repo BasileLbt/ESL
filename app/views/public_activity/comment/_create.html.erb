@@ -1,0 +1,7 @@
+added comment
+
+<% if activity.trackable %>
+  to <%= link_to activity.trackable.jeux_video.title, activity.trackable.jeux_video %>
+<% else %>
+  which has since been removed
+<% end %>
