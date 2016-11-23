@@ -4,11 +4,7 @@ Blogger::Application.routes.draw do
   
   resources :activities
 
-  resources :favorites do 
-    collection do
-      get ':id/add_jv_fav_to_user'=> 'favorites#add_jv_fav_to_user', as: 'add_jv_fav_to_user'
-    end
-  end
+  
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -21,10 +17,19 @@ Blogger::Application.routes.draw do
   resources :jeux_videos do
   	collection do
       resources :comments
+      resources :favorites
+      get ':id/add_jv_fav_to_user'=> 'favorites#add_jv_fav_to_user', as: 'add_jv_fav_to_user'
       get ':id/add_jv_to_user' => 'jeux_videos#add_jv_to_user', as:'add_jv_to_user'
   	end
   end
   resources :home
+
+  constraints subdomain: 'api' do  
+    namespace :api, path: '/' do 
+      resources :tournois
+    end
+  end
+
   resources :tournois do 
   	collection do 
   		get ':id/list' => 'tournois#list', as:'list'
@@ -35,9 +40,9 @@ Blogger::Application.routes.draw do
 
   
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauthcallbacks" }
-  resources :users do
-    collection do 
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauthcallbacks" } 
+      resources :users do
+      collection do 
     	get 'jeux' => 'users#jeux', as:'jeux'
     	get 'tournois' => 'users#tournois', as:'tournois'
     	get 'statistiques' => 'users#statistiques', as:'statistiques'

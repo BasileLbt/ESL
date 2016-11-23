@@ -25,7 +25,12 @@
         <li><%= link_to'Tournois', tournois_path %></li>
         <li><%= link_to'Jeux Disponibles', jeux_videos_path %></li>
         <li><%= link_to'Admin', new_admin_user_session_path %></li>    
-        <li><%= link_to'Notifications', activities_path, class: "notifications" %></li>      
+        <li><%= link_to "/activities" do %>
+        Notifications
+        <span class="badge badge-info"><%= @notification_count %></span>
+        <% end %></li>
+ 
+     
     </ul>
 </header>
   

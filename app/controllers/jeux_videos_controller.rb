@@ -5,6 +5,8 @@ class JeuxVideosController < ApplicationController
   # GET /jeux_videos.json
   def index
     @jeux_videos = JeuxVideo.all
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.id, owner_type: "User")
+    @notification_count = @activities.where(:read => false).count
   end
 
   # GET /jeux_videos/1
@@ -30,11 +32,11 @@ class JeuxVideosController < ApplicationController
     @jeux_video.initialize_jeuxvideo(@jeux_video)
     @jeux_video.save
     @favorite = Favorite.new
-    @favorite.id = @jeux_video.id
-    @favorite.save
+    @favorite.save  
 
     respond_to do |format|
       if @jeux_video.save
+        @jeux_video.create_activity :create, owner: current_user, read: false
         format.html { redirect_to @jeux_video, notice: 'Jeux video was successfully created.' }
         format.json { render :show, status: :created, location: @jeux_video }
         format.js   
@@ -51,6 +53,7 @@ class JeuxVideosController < ApplicationController
   def update
     respond_to do |format|
       if @jeux_video.update(jeux_video_params)
+        @jeux_video.create_activity :update, owner: current_user, read: false
         format.html { redirect_to @jeux_video, notice: 'Jeux video was successfully updated.' }
         format.json { render :show, status: :ok, location: @jeux_video }
       else
@@ -63,6 +66,7 @@ class JeuxVideosController < ApplicationController
   # DELETE /jeux_videos/1
   # DELETE /jeux_videos/1.json
   def destroy
+    @jeux_video.create_activity :destroy, owner: current_user, read: false
     @jeux_video.destroy
     respond_to do |format|
       format.html { redirect_to jeux_videos_url, notice: 'Jeux video was successfully destroyed.' }

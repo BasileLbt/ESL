@@ -30,7 +30,7 @@ class TournoisController < ApplicationController
 
     respond_to do |format|
       if @tournoi.save
-        @tournoi.create_activity :create, owner: current_user
+        @tournoi.create_activity :create, owner: current_user, read: false
         format.html { redirect_to @tournoi, notice: 'Tournoi was successfully created.' }
         format.json { render :show, status: :created, location: @tournoi }
         format.js   { flash[:notice] = "Tournoi was successfully created." }
@@ -47,6 +47,7 @@ class TournoisController < ApplicationController
   def update
     respond_to do |format|
       if @tournoi.update(tournoi_params)
+        @tournoi.create_activity :update, owner: current_user, read: false
         format.html { redirect_to @tournoi, notice: 'Tournoi was successfully updated.' }
         format.json { render :show, status: :ok, location: @tournoi }
       else
@@ -59,6 +60,7 @@ class TournoisController < ApplicationController
   # DELETE /tournois/1
   # DELETE /tournois/1.json
   def destroy
+    @tournoi.create_activity :destroy, owner: current_user, read: false
     @tournoi.destroy
     respond_to do |format|
       format.html { redirect_to tournois_url, notice: 'Tournoi was successfully destroyed.' }
@@ -89,7 +91,7 @@ class TournoisController < ApplicationController
     end
     @user = current_user
     UserMailer.points(@user, @tournoi).deliver_later
-    @tournoi.create_activity :play, owner: current_user
+    @tournoi.create_activity :play, owner: current_user, read: false
     redirect_to matches_path
   end
 

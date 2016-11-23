@@ -11,6 +11,7 @@ class Tournoi < ActiveRecord::Base
 	validates :lieu, :presence => true, :length => { :minimum => 15 }
 	validates :regles, :presence => true, :length => { :minimum => 10, :maximum => 100 }
 	validates :recompenses, :presence => true, :length => { :minimum => 10, :maximum => 50 }
+	validates :title, uniqueness: true
 	
 	def initialize_matches
 		a = self.users

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :tournois
   has_and_belongs_to_many :jeux_videos
   has_and_belongs_to_many :favorites
-  has_and_belongs_to_many :matches
+  has_and_belongs_to_many :matches 
   validates :email, uniqueness: true
   
 

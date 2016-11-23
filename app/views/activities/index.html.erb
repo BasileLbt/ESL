@@ -1,10 +1,25 @@
-<h1> User's Activities </h1>
+<h1> User's Activities </h1> 
 
 <br/>
 
 <% @activities.each do |activity| %>
 	<div class="activity">
-	<%= link_to activity.owner.pseudo, activity.owner if activity.owner %>
+	<% if activity.read == false %>
+	<div id="new"> (new) <%= link_to activity.owner.pseudo, activity.owner if activity.owner %>
 	<%= render_activity activity %>
 	</div>
+	<% else %>
+	<%= link_to activity.owner.pseudo, activity.owner if activity.owner %>
+	<%= render_activity activity %>
+	<% end %>
+	</div>
 <% end %>
+
+<style>
+
+#new {
+	font-style :italic;
+	color : #008000;
+}
+
+</style>

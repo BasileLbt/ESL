@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115132020) do
+ActiveRecord::Schema.define(version: 20161121153907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161115132020) do
     t.text     "parameters"
     t.integer  "recipient_id"
     t.string   "recipient_type"
+    t.boolean  "read"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,11 +81,21 @@ ActiveRecord::Schema.define(version: 20161115132020) do
   create_table "favorites", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "jeux_video_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
+  add_index "favorites", ["jeux_video_id"], name: "index_favorites_on_jeux_video_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
+  create_table "favorites_jeux_videos", id: false, force: :cascade do |t|
+    t.integer "favorite_id",   null: false
+    t.integer "jeux_video_id", null: false
+  end
+
+  add_index "favorites_jeux_videos", ["favorite_id", "jeux_video_id"], name: "index_favorites_jeux_videos_on_favorite_id_and_jeux_video_id", using: :btree
+  add_index "favorites_jeux_videos", ["jeux_video_id", "favorite_id"], name: "index_favorites_jeux_videos_on_jeux_video_id_and_favorite_id", using: :btree
 
   create_table "favorites_users", id: false, force: :cascade do |t|
     t.integer "favorite_id", null: false
