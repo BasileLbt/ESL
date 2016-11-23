@@ -8,7 +8,7 @@ group :development do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg'
+ 
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -44,10 +44,10 @@ gem 'omniauth-oauth2'
 gem 'geocoder'
 gem 'cancancan', '~> 1.10'
 gem 'gmaps4rails'
-
+gem 'pg'
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'public_activity'
-
+gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

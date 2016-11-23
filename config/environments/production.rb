@@ -78,10 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.fb_app_id = 193029654443619 
-  config.fb_app_secret = 9271b9b7872ddb0b49ed7cf129185372
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 1025 }
-
-
-}
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
