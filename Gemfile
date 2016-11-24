@@ -47,7 +47,6 @@ gem 'gmaps4rails'
 gem 'pg'
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'public_activity'
-gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
