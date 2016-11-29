@@ -1,11 +1,11 @@
 require'test_helper'
 
-class ListingTournoisTest < ActionDispatch::IntegrationTest
+class ListingUsersTest < ActionDispatch::IntegrationTest
   
   setup { host! 'localhost/api' }
 
-  test 'returns list of all tournois' do
-  	get '/tournois'
+  test 'returns user by id' do
+  	get '/users'
   	assert_equal 200, response.status
   	refute_empty response.body
   end

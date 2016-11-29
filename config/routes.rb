@@ -24,11 +24,12 @@ Blogger::Application.routes.draw do
   end
   resources :home
 
-  constraints subdomain: 'api' do  
-    namespace :api, path: '/' do 
+   
+    namespace :api, :defaults => { :format => 'json' } do 
       resources :tournois
+      resources :users
     end
-  end
+  
 
   resources :tournois do 
   	collection do 
