@@ -79,5 +79,5 @@ Rails.application.configure do
 
   config.fb_app_id = 193029654443619 
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'sleepy-river-16482.herokuapp.com' }
 end
