@@ -27,9 +27,10 @@
         <li><%= link_to'Admin', new_admin_user_session_path %></li>    
         <li><%= link_to "/activities" do %>
         Notifications
+        <% if user_signed_in? %>
         <%- @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.id, owner_type: "User") %>
-        <%- @notification_count = @activities.where(:read => false).count %>
-
+        <%- @notification_count = @activities.where(:read => false).count   %>
+        <% end %>
         <span class="badge badge-info"><%= @notification_count %></span>
         <% end %></li>
  
