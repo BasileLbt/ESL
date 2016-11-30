@@ -1,2 +1,1 @@
-web: bundle exec rails s
-web bin/rails server -p $PORT -e $RAILS_ENV
+echo "web: bundle exec rails server thin -p \$PORT -e \$RACK_ENV" > Procfile
