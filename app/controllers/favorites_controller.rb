@@ -11,10 +11,9 @@ class FavoritesController < ApplicationController
 	def add_jv_fav_to_user
 		
 		@favorite = Favorite.new
-    	@favorite.users << current_user
+    	@favorite.user = current_user
     	@jeux_video = JeuxVideo.find(params[:id])
-    	@favorite.jeux_videos << @jeux_video
-    	@favorite.title = @jeux_video.title
+    	@favorite.jeux_video = @jeux_video
     	@favorite.save
     	redirect_to @jeux_video, notice: 'Favorite Jeux video was successfully added.'
   	end

@@ -5,8 +5,6 @@ class JeuxVideosController < ApplicationController
   # GET /jeux_videos.json
   def index
     @jeux_videos = JeuxVideo.all
-    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.id, owner_type: "User")
-    @notification_count = @activities.where(:read => false).count
   end
 
   # GET /jeux_videos/1
