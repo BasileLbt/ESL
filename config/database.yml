@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: railsgame
-  host: localhost
+  host: http://sleepy-river-16482.herokuapp.com/
   username: postgres
   password: 
 
