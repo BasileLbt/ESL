@@ -22,7 +22,7 @@ development:
 test:
   <<: *default
   host: localhost
-  database: railsgame
+  database: railsgame_test
   username: postgres
   password:
 

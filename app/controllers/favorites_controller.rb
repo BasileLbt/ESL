@@ -15,6 +15,8 @@ class FavoritesController < ApplicationController
     	@jeux_video = JeuxVideo.find(params[:id])
     	@favorite.jeux_video = @jeux_video
     	@favorite.save
+    	@user = current_user
+    	@user.favorites << @favorite
     	redirect_to @jeux_video, notice: 'Favorite Jeux video was successfully added.'
   	end
 	
